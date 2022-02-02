@@ -30,7 +30,8 @@ public class Tournament
 	private int price;
 	private String winner;
 	private String venue;
-	@OneToMany(cascade = CascadeType.PERSIST)
+	private String name;
+	@OneToMany
 	@JoinTable(name="record",joinColumns = @JoinColumn(name="eventId"),
 				inverseJoinColumns = @JoinColumn(name="participantId"))
 	private Collection<Athlete> participants=new ArrayList<Athlete>();
@@ -69,5 +70,11 @@ public class Tournament
 	}
 	public void setParticipants(Collection<Athlete> participants) {
 		this.participants = participants;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }
