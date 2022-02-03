@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
+import org.springframework.lang.Nullable;
+
 /* 
  * entity relationships
  * 1 to 1
@@ -28,12 +30,14 @@ public class Tournament
 	private int tournamentId;
 	private Date startDate;
 	private int price;
+	@Nullable
 	private String winner;
 	private String venue;
 	private String name;
 	@OneToMany
 	@JoinTable(name="record",joinColumns = @JoinColumn(name="eventId"),
 				inverseJoinColumns = @JoinColumn(name="participantId"))
+	@Nullable
 	private Collection<Athlete> participants=new ArrayList<Athlete>();
 	public int getTournamentId() {
 		return tournamentId;
