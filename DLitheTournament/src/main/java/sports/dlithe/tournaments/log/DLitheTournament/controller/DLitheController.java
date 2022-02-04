@@ -1,5 +1,7 @@
 package sports.dlithe.tournaments.log.DLitheTournament.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +23,9 @@ public class DLitheController
 	AthleteService aservice;
 	
 	@GetMapping("/")
-	public String hai()
+	public List<Tournament> readingMore()
 	{
-		return "Project is working fine";
+		return tservice.fetchingAll();
 	}
 	
 	@PostMapping("/add")
