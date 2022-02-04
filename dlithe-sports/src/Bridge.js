@@ -12,4 +12,14 @@ export const collecting=async()=>{
     return t;
 }
 
+export const letSelect=async()=>{
+    const t = await axios.get(`${url}/choose`)
+    return t;
+}
+
+export const enrolling=async(obj)=>{
+    const t = await axios.post(`${url}/part`,obj)
+    return t;
+}
+
 //export {inserting}

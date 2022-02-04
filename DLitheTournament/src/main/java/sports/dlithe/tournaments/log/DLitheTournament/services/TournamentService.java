@@ -1,6 +1,7 @@
 package sports.dlithe.tournaments.log.DLitheTournament.services;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,15 @@ public class TournamentService
 	public List<Tournament> fetchingAll()
 	{
 		return trepo.findAll();
+	}
+	
+//	public List<Object[]> positioning()
+//	{
+//		return trepo.findFew();
+//	}
+	
+	public Tournament fetchingOnlyOne(Integer id)
+	{
+		return trepo.findById(id).orElse(new Tournament());
 	}
 }

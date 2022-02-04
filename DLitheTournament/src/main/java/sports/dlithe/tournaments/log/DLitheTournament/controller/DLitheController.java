@@ -1,6 +1,7 @@
 package sports.dlithe.tournaments.log.DLitheTournament.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import sports.dlithe.tournaments.log.DLitheTournament.model.Athlete;
 import sports.dlithe.tournaments.log.DLitheTournament.model.Tournament;
 import sports.dlithe.tournaments.log.DLitheTournament.services.AthleteService;
 import sports.dlithe.tournaments.log.DLitheTournament.services.TournamentService;
@@ -33,4 +35,16 @@ public class DLitheController
 	{
 		return tservice.newOne(tournament);
 	}
+	
+	@PostMapping("/part")
+	public String addingAth(@RequestBody Athlete athlete)
+	{
+		return aservice.enroll(athlete);
+	}
+	
+//	@GetMapping("/choose")
+//	public List<Object[]> few()
+//	{
+//		return tservice.positioning();
+//	}
 }
