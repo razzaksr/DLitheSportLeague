@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,12 +22,20 @@ import org.springframework.lang.Nullable;
  * 1 to many
  * many to 1
  * many to many
+ * 
+ * 
+ * scopes of entity object:
+ * transient>> not yet attached to the orm
+ * persist>> attached to orm
+ * detach>> disconnected from orm
  */
+
+
 
 @Entity
 public class Tournament 
 {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int tournamentId;
 	private Date startDate;
 	private int price;
@@ -34,7 +43,7 @@ public class Tournament
 	private String winner;
 	private String venue;
 	private String name;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinTable(name="record",joinColumns = @JoinColumn(name="eventId"),
 				inverseJoinColumns = @JoinColumn(name="participantId"))
 	@Nullable

@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { collecting } from "./Bridge";
-import Button from '@mui/material/Button';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 
 export const Home=()=>{
     const[every,setEvery]=useState([])
-    const[tour,setTour]=useState({
-        "tournamentId":0,
-        "name":"",
-        "startDate":"",
-        "venue":"",
-        "winner":"",
-        "participant":[],
-        "price":0
-    })
 
     useEffect(()=>{
         gather()
@@ -52,11 +42,10 @@ export const Home=()=>{
                                         <td>{obj.winner}</td>
                                         <td>{obj.price}</td>
                                         <td>
-                                            <Button color="success" onClick={()=>{
-                                                setTour(obj)
-                                            }}>
+                                            <a className="btn btn-outline-warning"
+                                                href={`/ath/${index}`}>
                                                 <AccountBoxOutlinedIcon/>
-                                            </Button>
+                                            </a>
                                         </td>
                                     </tr>
                                 ))}

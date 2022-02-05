@@ -4,17 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+
 
 @Entity
 public class Athlete 
 {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int enrollId;
 	private String name;
 	private long contactNo;
 	private double weight;
 	@ManyToOne
+	@JoinColumn(insertable = false,updatable = false)
 	private Tournament tournament;
 	public int getEnrollId() {
 		return enrollId;

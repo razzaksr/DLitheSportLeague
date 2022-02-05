@@ -8,5 +8,5 @@ import sports.dlithe.tournaments.log.DLitheTournament.model.Athlete;
 @Repository
 public interface AthleteRepository extends JpaRepository<Athlete, Integer> 
 {
-
+	
 }

@@ -82,7 +82,7 @@ export const NewTournament=()=>{
                         value={tournament.venue}
                         onChange={gather}
                     />
-                    <InputLabel htmlFor="outlined-adornment-prize">Price</InputLabel>
+                    <InputLabel htmlFor="outlined-adornment-price">Price</InputLabel>
                     <OutlinedInput
                         id="outlined-adornment-price"
                         name="price"

@@ -12,7 +12,7 @@ const App=()=>{
         <Routes>
           <Route path="/" exact element={<Home/>}/>
           <Route path="/new" exact element={<NewTournament/>}/>
-          <Route path="/ath/3" exact element={<Athlete/>}/>
+          <Route path="/ath/:position" exact element={<Athlete/>}/>
         </Routes>
       </BrowserRouter>
   )

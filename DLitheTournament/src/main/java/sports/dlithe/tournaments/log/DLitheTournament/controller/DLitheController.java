@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,7 +40,14 @@ public class DLitheController
 	@PostMapping("/part")
 	public String addingAth(@RequestBody Athlete athlete)
 	{
-		return aservice.enroll(athlete);
+		// adding athlete to the table of tournament in participants list
+//		athlete.getTournament().getParticipants().add(athlete);
+//		tservice.newOne(athlete.getTournament());
+		String t = aservice.enroll(athlete);
+		Tournament tour = tservice.fetchingOnlyOne(athlete.getTournament().getTournamentId());
+		tour.getParticipants().add(athlete);
+		tservice.newOne(tour);
+		return t;
 	}
 	
 //	@GetMapping("/choose")
