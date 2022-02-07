@@ -17,4 +17,9 @@ export const enrolling=async(obj)=>{
     return t;
 }
 
+export const updating=async(word,obj)=>{
+    const t = await axios.put(`${url}/up/${word}`,obj)
+    return t;
+}
+
 //export {inserting}

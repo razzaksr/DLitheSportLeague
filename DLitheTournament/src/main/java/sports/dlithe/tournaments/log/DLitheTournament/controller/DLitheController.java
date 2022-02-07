@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,9 +51,11 @@ public class DLitheController
 		return t;
 	}
 	
-//	@GetMapping("/choose")
-//	public List<Object[]> few()
-//	{
-//		return tservice.positioning();
-//	}
+	@PutMapping("/up/{winner}")
+	public String yetToDecide(@PathVariable("winner") String winner, @RequestBody Tournament tournament)
+	{
+		tournament.setWinner(winner);
+		String t = tservice.announce(tournament);
+		return t+" winner is "+winner;
+	}
 }

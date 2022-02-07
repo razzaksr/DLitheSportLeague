@@ -20,7 +20,7 @@ export const Home=()=>{
                 <div className="row justify-content-center">
                     <div className="table-responsive-md">
                         <table className="table table-bordered table-hover shadow">
-                            <thead className="bg-info text-danger">
+                            <thead className="bg-info text-danger text-center">
                                 <tr>
                                     <th>Tournament Id</th><th>Tournament Name</th>
                                     <th>Tournament Start Date</th>
@@ -38,7 +38,11 @@ export const Home=()=>{
                                         <td>{obj.name}</td>
                                         <td>{new Date(obj.startDate).toISOString()}</td>
                                         <td>{obj.venue}</td>
-                                        <td>{obj.participants.length}</td>
+                                        <td>
+                                            <a href={`/show/${index}`} className="link-dark">
+                                                {obj.participants.length}
+                                            </a>
+                                        </td>
                                         <td>{obj.winner}</td>
                                         <td>{obj.price}</td>
                                         <td>
