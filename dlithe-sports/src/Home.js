@@ -11,12 +11,17 @@ export const Home=()=>{
 
     const gather=async()=>{
         const t = await collecting()
-        setEvery(t.data)
+        setEvery(t.data.filter((data)=>{
+            return data.winner === null
+        }))
     }
 
     return(
         <>
             <div className="container mt-lg-5">
+                <a href={`/completed`}>
+                    <p className="display-6 link-primary">View Past tournaments</p>
+                </a>
                 <div className="row justify-content-center">
                     <div className="table-responsive-md">
                         <table className="table table-bordered table-hover shadow">
