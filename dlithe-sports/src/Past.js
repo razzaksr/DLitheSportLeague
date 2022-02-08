@@ -21,7 +21,7 @@ export const Past=()=>{
         <div className="container mt-lg-2">
             <div className="d-flex flex-row flex-nowrap overflow-auto p-4">
                 {every.map((data,index)=>(
-                    <div className="card col-lg-3 col-md-4 col-sm-6 text-light bg-info p-4 me-3 mt-3">
+                    <div className="card col-lg-4 col-md-6 col-sm-12 text-light bg-info p-4 me-3 mt-3">
                         <h1 className="text-center card-title">{data.name}</h1>
                         <hr color="blue"/>
                         <div className="card-body">

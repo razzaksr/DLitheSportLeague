@@ -44,7 +44,7 @@ export const Home=()=>{
                                         <td>{new Date(obj.startDate).toISOString()}</td>
                                         <td>{obj.venue}</td>
                                         <td>
-                                            <a href={`/show/${index}`} className="link-dark">
+                                            <a href={`/show/${obj.tournamentId}`} className="link-dark">
                                                 {obj.participants.length}
                                             </a>
                                         </td>
@@ -52,7 +52,7 @@ export const Home=()=>{
                                         <td>{obj.price}</td>
                                         <td>
                                             <a className="btn btn-outline-warning"
-                                                href={`/ath/${index}`}>
+                                                href={`/ath/${obj.tournamentId}`}>
                                                 <AccountBoxOutlinedIcon/>
                                             </a>
                                         </td>

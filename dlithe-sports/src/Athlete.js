@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { collecting, enrolling } from "./Bridge";
+import { collecting, enrolling, onlyOne } from "./Bridge";
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -9,7 +9,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Button from '@mui/material/Button';
 
 export const Athlete=()=>{
-    const{position}=useParams()
+    const{id}=useParams()
 
     const[athlete,setAthlete]=useState({
         "name":"",
@@ -23,11 +23,20 @@ export const Athlete=()=>{
     },[])
 
     const gather=async()=>{
-        const t = await collecting()
+        // const t = await collecting()
+
+        // setAthlete((old)=>{
+        //     return{
+        //         ...old,
+        //         "tournament":{}//t.data[position]
+        //     }
+        // })
+
+        const t = await onlyOne(id)
         setAthlete((old)=>{
             return{
                 ...old,
-                "tournament":t.data[position]
+                "tournament":t.data
             }
         })
     }
