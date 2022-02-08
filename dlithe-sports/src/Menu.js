@@ -13,8 +13,17 @@ export const Menu=()=>{
                 <Navbar.Toggle aria-controls="dlithe"/>
                 <Navbar.Collapse id="dlithe" >
                     <Nav className="ms-auto">
-                        <Nav.Link className="btn btn-outline-info text-light me-2" href="/">Home</Nav.Link>
+                        <Nav.Link className="btn btn-outline-info text-light me-2" href="/home">Home</Nav.Link>
                         <Nav.Link className="btn btn-outline-info text-light me-2" href="/new">Schedule</Nav.Link>
+                        <button 
+                            className="btn btn-outline-info text-light me-2"
+                            onClick={()=>{
+                                localStorage.removeItem("user")
+                                window.location.assign("/")
+                            }}
+                            >
+                            Logout
+                        </button>
                     </Nav>
                 </Navbar.Collapse>
             </div>

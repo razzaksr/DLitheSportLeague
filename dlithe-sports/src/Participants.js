@@ -29,7 +29,7 @@ export const Participants=()=>{
     const declare=async(person)=>{
         const t = await updating(person,tour)
         alert(t.data)
-        window.location.assign("/")
+        window.location.assign("/home")
     }
 
     return(<>
